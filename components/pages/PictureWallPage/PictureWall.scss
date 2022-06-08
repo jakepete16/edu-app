@@ -1,0 +1,224 @@
+@import "styles/colors.scss";
+@import "styles/fonts.scss";
+@import "styles/index.scss";
+
+
+.grid-container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+      "specialEd elementary secondary"
+      "graduates graduates graduates"
+}
+
+.sped {
+  background-color: rgba(0, 204, 255, 0.117);
+  display: grid;
+  grid-area: specialEd;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3fr 3fr 3fr 3fr 3fr 3fr;
+  grid-gap: 15px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border: 1px solid black;
+  grid-template-areas:
+      "logo img img img img img"
+      "img img img img img img"
+      "img img img img img img"
+      "img img img img img img"
+      "img img img img img img"     
+}
+
+.elementary {
+  //background-color: rgba(123, 255, 0, 0.595);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3fr 3fr 3fr 3fr 3fr 3fr;
+  grid-gap: 15px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  grid-template-areas:
+      "logo img img img img img"
+      "img img img img img img"
+      "img img img img img img"
+      "img img img img img img"
+      "img img img img img img"     
+}
+.secondary {
+  //background-color: rgba(255, 115, 0, 0.595);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 3fr 3fr 3fr 3fr 3fr 3fr;
+  grid-gap: 15px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  grid-template-areas:
+      "logo img img img img img"
+      "img img img img img img"
+      "img img img img img img"
+      "img img img img img img"
+      "img img img img img img"     
+}
+
+.graduates1 {
+  //background-color: rgba(255, 0, 225, 0.595);
+  display: grid;
+  grid-area: graduates;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 15px;
+  padding: 10px;
+  grid-template-areas:
+      "logo img img img img img img img img img img img img img img img img img"
+      "img img img img img img img img img img img img img img img img img img"
+}
+
+.logo {
+  background-color: rgba(245, 245, 220, 0.481);
+  text-align: center;
+  padding-top: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.img {
+  background-color: rgba(255, 94, 0, 0.192);
+  border: 1px solid black;
+  padding: 20px;
+  margin: 0;
+}
+
+
+
+
+.pending-map-container {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  background-color: #0000003d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.background-image-container {
+  background-image: url("../../../images/wooden-shelf-3.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+
+  height: 100vh;
+  width: 100vw;
+  /*display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;*/
+}
+
+.map-container.background {
+  z-index: -10000;
+  opacity: 0.15;
+  position: fixed;
+}
+
+.cluster-marker,
+.point-marker {
+  color: $off-white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  transition-duration: $transition-duration;
+}
+
+.cluster-marker:hover,
+.point-marker:hover,
+.cluster-marker:focus,
+.point-marker:focus {
+  cursor: pointer;
+  box-shadow: 0 0 1rem $white;
+  z-index: 100000 !important;
+  opacity: 1 !important;
+  transform: scale(1.2) translate(42%, -42%);
+}
+
+.cluster-marker {
+  background-color: $hope-blue;
+  font-family: $font-stack;
+  font-size: 18pt;
+}
+
+.point-marker {
+  background-color: $lake-mi-blue;
+  font-size: 14pt;
+}
+
+.map-popover {
+  max-width: unset !important;
+  > .popover-body {
+    max-height: 16rem;
+    overflow: auto;
+  }
+}
+
+.alum-popover-item {
+  width: 30rem;
+}
+
+.job-popover-item {
+  width: 36rem;
+}
+
+#mapDiv {
+  position: absolute;
+}
+
+#tagline,
+.map-container a {
+  pointer-events: none !important;
+}
+
+.click-blocker {
+  position: absolute;
+  min-width: 69px;
+  bottom: 0;
+  z-index: 3000;
+}
+
+.click-blocker.left {
+  min-height: 23.5px;
+  left: 3px;
+}
+
+.click-blocker.right {
+  position: absolute;
+  min-height: 17px;
+  right: 2px;
+}
+
+#tagline {
+  margin-left: 3rem;
+  margin-top: 6rem;
+  width: 24rem !important;
+  position: fixed;
+  z-index: 15;
+  
+}
