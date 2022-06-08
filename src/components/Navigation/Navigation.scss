@@ -1,0 +1,129 @@
+@import "styles/colors.scss";
+@import "styles/index.scss";
+
+
+
+.navbar {
+  z-index: 1;
+}
+
+.edlogo {
+  margin-left: 12.8rem;
+  margin-top: 0rem;
+  width: 18rem !important;
+  position: fixed;
+  height: 4.2rem;
+  z-index: 15;
+}
+
+.fixed-top {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  
+}
+
+.navbar.bg-light {
+  background-color: white!important;
+  border: $lt-border;
+  height: 8%;
+}
+
+
+.navbar-title {
+  color: $hope-blue;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem !important;
+  border-radius: $border-radius;
+  color: $off-white !important;
+  background-color: $hope-blue;
+  transition-duration: $transition-duration;
+}
+
+
+.nav-link:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.nav-link:hover {
+  background-color: $hope-orange;
+  color: $off-white !important;
+}
+
+.nav-link.active {
+  background-color: $hope-orange;
+  color: $off-white !important;
+  border-color: $hope-orange;
+}
+
+.nav-link-arrow-right {
+  width: 10;
+  height: 10;
+  font-size: 3em;
+  padding-bottom: 1rem;
+  text-align: center;
+  justify-content: flex-start;
+  color: $hope-blue;
+}
+
+.nav-link-arrow-right:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.nav-link-arrow-right:hover {
+  width: 10;
+  height: 10;
+  font-size: 3em;
+  padding-bottom: 1rem;
+  text-align: center;
+  justify-content: flex-start;
+  color: $hope-orange;
+}
+
+.nav-link-arrow-right.active {
+  width: 10;
+  height: 10;
+  font-size: 3em;
+  padding-bottom: 1rem;
+  text-align: center;
+  justify-content: flex-start;
+  color: $hope-orange;
+}
+
+
+.nav-link-arrow-left {
+  width: 10;
+  height: 10;
+  font-size: 3em;
+  padding-bottom: 1rem;
+  text-align: center;
+  justify-content: flex-start;
+  color: $hope-blue;
+}
+
+.nav-link-arrow-left:not(:last-child) {
+  margin-right: 0.25rem;
+}
+
+.nav-link-arrow-left:hover {
+  width: 10;
+  height: 10;
+  font-size: 3em;
+  padding-bottom: 1rem;
+  text-align: center;
+  justify-content: flex-start;
+  color: $hope-orange;
+}
+
+.nav-link-arrow-left.active {
+  width: 10;
+  height: 10;
+  font-size: 3em;
+  padding-bottom: 1rem;
+  text-align: center;
+  justify-content: flex-start;
+  color: $hope-orange;
+}
