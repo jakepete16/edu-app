@@ -1,0 +1,46 @@
+image: node
+
+definitions:
+  steps:
+    - step: &lint
+        name: Check code style
+        script:
+          - npm install
+          - npx eslint **/*.ts[x]
+        caches:
+          - node
+    - step: &build
+        name: Build and test
+        script:
+          - echo > ".env"
+          - echo REACT_APP_GOOGLE_API_KEY=$GOOGLE_API_KEY >> ".env"
+          - echo REACT_APP_HANDSHAKE_API_KEY=$HANDSHAKE_API_KEY >> ".env"
+          - npm install
+          - npm run test
+          - npm run build
+        artifacts:
+          - build/**
+        caches:
+          - node
+    - step: &deploy
+        name: Deploy to Firebase
+        script:
+          - cd functions
+          - npm install
+          - cd ..
+          - pipe: atlassian/firebase-deploy:1.0.0
+            variables:
+              FIREBASE_TOKEN: $FIREBASE_TOKEN
+              PROJECT_ID: $FIREBASE_PROJECT
+
+pipelines:
+  pull-requests:
+    "**":
+      - step: *lint
+      - step: *build
+
+  branches:
+    master:
+      - step: *lint
+      - step: *build
+      - step: *deploy
